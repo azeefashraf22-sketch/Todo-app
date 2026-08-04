@@ -1,5 +1,6 @@
 import express from 'express';
-import { addTodo, getTodos } from '../controllers/todo.js';
+import { addTodo, getTodos, toggleStatus } from '../controllers/todo.js';
+
 const router = express.Router();
 
 router.post("/add", (req, res) => {
@@ -9,6 +10,11 @@ router.post("/add", (req, res) => {
 
 router.get("/", (req, res) => {
     res.render("todo", { todos: getTodos() });
+});
+
+router.post("/toggle", (req, res) => {
+    toggleStatus(req.body.id);
+    res.redirect("/todo");
 });
 
 export default router;

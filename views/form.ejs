@@ -8,9 +8,14 @@
 </head>
 
 <body>
-    <form action="/todo/add" method="post">
-        <input name="data" />
-        <button>Add todo</button>
+    <h2>Add New Todo</h2>
+
+    <form action="/todo/add" method="POST">
+        <input name="data" placeholder="Enter todo" required />
+        <button type="submit">Add Todo</button>
+    </form>
+
+    <a href="/todo">← Back to Todo List</a>
     </form>
 </body>
 
