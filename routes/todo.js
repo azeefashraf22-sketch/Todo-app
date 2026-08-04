@@ -8,7 +8,7 @@ router.post("/add", (req, res) => {
 });
 
 router.get("/", (req,res) => {
-    res.render("todo",{todo:getTodos()});
+    res.render("todo",{todos:getTodos()});
 })
 
 export default router;

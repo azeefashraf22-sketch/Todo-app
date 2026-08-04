@@ -3,7 +3,8 @@ import dotenv from 'dotenv';
 import morgan from 'morgan';
 import path from 'path';
 import bodyParser from 'body-parser';
-import router from './routes/todo.js';
+import todo from './routes/todo.js';
+import form from './routes/form.js';
 dotenv.config();
 
 const app = express();
@@ -14,7 +15,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(process.cwd())));
 app.set("view engine", "ejs");
 app.set("views", "views");
-app.use("/todo",router);
+
+app.use("/todo", todo);
+app.use("/form", form);
 
 const PORT = process.env.PORT || 5000;
 
