@@ -17,23 +17,24 @@
     <h2>My Todo List</h2>
 
     <ul>
-        <% if (todos.length === 0) { %>
+        <% if (todos.length===0) { %>
             <li>No tasks added yet!</li>
-        <% } %>
+            <% } %>
 
-        <% for(let i = 0; i < todos.length; i++){ %>
-            <li>
-                <form action="/todo/toggle" method="POST">
-                    <input type="hidden" name="id" value="<%= todos[i].id %>" />
-                    
-                    <input type="checkbox" onchange="this.form.submit()" <%= todos[i].completed ? 'checked' : '' %> />
+                <% for(let i=0; i < todos.length; i++){ %>
+                    <li>
+                        <form action="/todo/toggle" method="POST">
+                            <input type="hidden" name="id" value="<%= todos[i].id %>" />
 
-                    <span class="<%= todos[i].completed ? 'completed' : '' %>">
-                        <%= todos[i].text %>
-                    </span>
-                </form>
-            </li>
-        <% } %>
+                            <input type="checkbox" onchange="this.form.submit()" <%=todos[i].completed ? 'checked' : ''
+                                %> />
+
+                            <span class="<%= todos[i].completed ? 'completed' : '' %>">
+                                <%= todos[i].text %>
+                            </span>
+                        </form>
+                    </li>
+                    <% } %>
     </ul>
 
     <a href="/form">+ Add New Todo</a>
